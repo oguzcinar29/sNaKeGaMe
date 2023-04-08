@@ -1,0 +1,22 @@
+from turtle import Turtle
+class Score(Turtle):
+    def __init__(self, shape: str = "classic", undobuffersize: int = 1000, visible: bool = True) -> None:
+        super().__init__(shape, undobuffersize, visible)
+        self.score=0
+        self.color("white")
+        self.hideturtle()
+        self.penup()
+        self.setpos(-60,270)
+        self.score_board=self.write(f"Score : {self.score} ",align='left',font=('Arial',17,'normal'))
+        
+        
+    def increment_score(self):
+        self.score+=1
+        self.clear()
+        self.score_board=self.write(f"Score : {self.score} ",align='left',font=('Arial',16,'normal'))
+        
+    def gameOver(self):
+        self.clear()
+        self.setpos(-150,0)
+        self.game_over_1=self.write(f"Game Over!",align='left',font=('Arial',40,'normal'))
+    
